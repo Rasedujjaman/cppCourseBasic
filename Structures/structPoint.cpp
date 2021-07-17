@@ -41,6 +41,22 @@ int main()
 		<< std::endl;
 	
 	
+	Point p4, p5, p6; // Define 3 points
+
+	std::cout << "Enter coordinate for p4: "; // get 2 points from user
+	std::cin >> p4.x >> p4.y ;
+	std::cout << "Enter coordinate for p5: ";
+	std::cin >> p5.x >> p5.y;
+
+	// find the summation of p4 and p5
+	p6.x = p4.x + p5.x;
+	p6.y = p4.y + p5.y;
+
+	// display the summation of the two points
+	std::cout << "Coordinates of p1+p2 are: "
+		<< p6.x << ", " <<p6.y << std::endl;
+
+
 	// delete the p2 
 	delete p2;
 
