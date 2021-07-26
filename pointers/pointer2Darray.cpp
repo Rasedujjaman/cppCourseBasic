@@ -11,18 +11,19 @@ Finally the memory is deallocated.
 */
 
 #include <iostream>
+#include <iomanip>
 
-using namespace std;
 
 int main()
 {
+	
 
-    int **matrix;  // pointer to pointer variable
-    int numRow, numCol;
-    cout << "Give the number of rows:";
-    cin >> numRow;
-    cout << "Give the number of columns: ";
-    cin >> numCol;
+	int **matrix;  // pointer to pointer variable
+   	int numRow, numCol;
+	std::cout << "Give the number of rows:";
+   	std::cin >> numRow;
+    	std::cout << "Give the number of columns: ";
+    	std::cin >> numCol;
 
     matrix = new int*[numRow];  // alloacate momory for the number of row 
 
@@ -39,33 +40,35 @@ int main()
 
         for(int j = 0; j< numCol; j++)
         {
-            cin >> matrix[i][j];
+         std::cout << "Matrix["<<i<<j<< "]:";  
+	 std::cin >> matrix[i][j];
         }
     }
 
 // To display the matrix using index
-    cout << "The matrix is: " << endl;
+    std::cout << "The matrix is: " << std::endl;
+    //std::cout << std::setw(3);
        for(int i = 0; i< numRow; i++)
     {
 
         for(int j = 0; j< numCol; j++)
         {
-            cout << matrix[i][j] << " ";
+            std::cout << matrix[i][j] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 
 //
 // Another way to access the matrix element (by using pointer arithmetic)s
-    cout << "The matrix is: " << endl;
+    std::cout << "The matrix is: " << std::endl;
        for(int i = 0; i< numRow; i++)
        {
            for(int j = 0; j< numCol; j++)
            {
-               cout << *(*(matrix + i)+j) << " "; // two level derefference: first dereference allows to go to a particular row, and the next level derefernce go 
+               std::cout << *(*(matrix + i)+j) << " "; // two level derefference: first dereference allows to go to a particular row, and the next level derefernce go 
                                                   // the collumn
            }
-           cout << endl;
+           std::cout << std::endl;
        }
 
 
