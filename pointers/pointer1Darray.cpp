@@ -43,6 +43,7 @@ int main()
 
     // Deallocate the memory
 
-    delete [] numArray;   
+    delete [] numArray; // Delete the whole array
+    numArray = NULL;  // Good practice to put NULL at the pointer variable   
 
 }
