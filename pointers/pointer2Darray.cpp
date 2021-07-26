@@ -65,8 +65,8 @@ int main()
        {
            for(int j = 0; j< numCol; j++)
            {
-               std::cout << *(*(matrix + i)+j) << " "; // two level derefference: first dereference allows to go to a particular row, and the next level derefernce go 
-                                                  // the collumn
+               std::cout << *(*(matrix + i)+j) << " "; // two level derefference: first dereference allows to go to a particular row, 
+						       // and the next level derefernce go the collumn
            }
            std::cout << std::endl;
        }
@@ -76,12 +76,17 @@ int main()
     // deallocate the memory
     for(int i = 0; i< numRow; i++)
     {
-        delete matrix[i];
+        delete[] matrix[i];  // delete the number of column in each row
     }
-    delete matrix;
+    delete[] matrix;  // delete the number of row
+    matrix = NULL;   // Allocate a null to the pointer variable
 
 
-
+/* The memory deallocation process of 2D array
+ * first you go to each row and then delete the number of column
+ * then you delete the number of row
+ * and finally allocate NULL to the pointer variable
+ */
 
     return 0;
 }

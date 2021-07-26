@@ -8,13 +8,13 @@ https://aticleworld.com/void-pointer-in-c/
 
 #include <iostream>
 
-using namespace std;
+
 
 int main()
 {
     int numRow, numCol, numPage;
-    cout << "Give the dimensions of the array (numRow, numCol, numPage): " ;
-    cin >> numRow >> numCol >> numPage;
+    std::cout << "Give the dimensions of the array (numRow, numCol, numPage): " ;
+    std::cin >> numRow >> numCol >> numPage;
 
     int ***matrix;  // pointer to pointer to pointer variable
 
@@ -39,7 +39,8 @@ int main()
         {
             for(int j = 0; j< numCol; j++)
             {
-                cin >> *(*(*(matrix + k)+i)+j);
+               std::cout << "Matrix[" << k << i << j << "]: ";
+		std::cin >> *(*(*(matrix + k)+i)+j);
             }
         }
     }
@@ -47,19 +48,20 @@ int main()
 
 // the output matrix
 
-    cout << "The output matrix is: " << endl;
+    std::cout << "The output matrix is: " << std::endl;
     for(int k = 0; k< numPage; k++)
     {
-        for (int i = 0; i< numRow; i++)
+        std::cout << "Matrix(:,:,"<< k<< "): "<< std::endl;
+	for (int i = 0; i< numRow; i++)
         {
             for(int j = 0; j< numCol; j++)
             {
-                cout  << *(*(*(matrix + k)+i)+j) << " "; // dereferencing order: numPage->numRwo->numCol.
+                std::cout  << *(*(*(matrix + k)+i)+j) << " "; // dereferencing order: numPage->numRwo->numCol.
                 // Its similar to reading a book. Go to a page then in a line and then read the each word.
             }
-            cout << endl;
+            std::cout << std::endl;
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 
 
@@ -72,14 +74,21 @@ int main()
     {
         for(int i= 0; i< numRow; i++)
         {
-            delete matrix[k][i];  // number of column in each row
+            delete[] matrix[k][i];  //delete the number of column in each row
         }
+	delete[] matrix[k];  // delete the number of row in each page
     }
 
-    delete [] matrix;
-    delete matrix;
+    delete [] matrix;  // delete the number of page
 
+    matrix = NULL;  // Allocate a null to the pointer variable
 
+/* In the memory deallocation process of 3D array:
+ * you first access to the page then in each page in each row delete the number of column
+ * then in each page delete the number of row 
+ * then delete the number of page
+ * and finally allocate NULL to the pointer variable
+ */
 
 
     return 0;
