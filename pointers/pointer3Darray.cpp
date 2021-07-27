@@ -31,6 +31,18 @@ int main()
         }
     }
 
+ /* The dynamic memory allocation for 3D matrix is as follows:
+ * Consider a book (a 3D object), first you chose the number of pages 
+ * of the book then in the second step you chose how many lines you want
+ * to add in each page and finally you chose how many words you want  to 
+ * put in each line. The example equaly applies to the memory 
+ * allocation of a 3D matrix(ixjxk). First you allocate the third dimension,
+ * the the number of rows and finally the number of column.
+ * In the matrix the third dimension corresponds to the number of page from the 
+ * book example, the number of rows corresponds to the number of line and the
+ * number of column corresponds to the number of words in each row.
+ */
+
     // the entry in the matrix
 
     for(int k = 0; k< numPage; k++)
