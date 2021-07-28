@@ -5,4 +5,5 @@
    pointer2Darray.cpp --- dynamic memory allocation of 2D matrix
    pointer3Darray.cpp --- dynamic memory allocation of 3D matrix
    maxAndMin.cpp      --- Multiple value return from a function using pointer
+   arrayOfPointers.cpp -- Define the concept of array of pointers
 
